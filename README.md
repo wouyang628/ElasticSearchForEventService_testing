@@ -42,6 +42,9 @@ root@ubuntu:~/monitoring# pip3 install elasticsearch
 ```
 to add a new event:
 ```
+import requests
+import json
+from elasticsearch import Elasticsearch
 event1 = {
     "timestamp": datetime.now(),
     "device_ID": "vmx101", 
