@@ -56,9 +56,12 @@ to add a new event:
 
 import requests
 import json
+import datetime
 from elasticsearch import Elasticsearch
+
+timeNow = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 event1 = {
-    "timestamp": datetime.now(),
+    "timestamp": timeNow,
     "device_ID": "vmx101", 
     "device_type": "network",
     "vendor": "Juniper", 
@@ -66,10 +69,13 @@ event1 = {
     "error_code": "interface_down", 
     "error_message": "ge-0/0/0 is down", 
     "status": "new", 
+    "action": "none",
+    "source": "healthbot",
     "result": "none"
 }
+
 event2 = {
-    "timestamp": datetime.now(),
+    "timestamp": timeNow,
     "device_ID": "linux2", 
     "device_type": "server",
     "vendor": "unknow", 
@@ -77,6 +83,8 @@ event2 = {
     "error_code": "cpu_100", 
     "error_message": "cpu 100", 
     "status": "new", 
+    "action": "none",
+    "source": "healthbot",
     "result": "none"
 }
 es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
