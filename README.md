@@ -42,6 +42,18 @@ root@ubuntu:~/monitoring# pip3 install elasticsearch
 ```
 to add a new event:
 ```
+            new_message = {
+                "device_ID": self.get_device_ID(),
+                "device_type": "network",
+                "timestamp": timeNow,
+                "vendor": "Juniper",
+                "element_name" : self.get_element_name(),
+                "error_code": self.get_error_code(),
+                "error_message": self.get_message(),
+                "status": "new",
+                "action": "none",
+                "source": "healthbot",
+
 import requests
 import json
 from elasticsearch import Elasticsearch
