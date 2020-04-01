@@ -126,6 +126,10 @@ source_to_update = {
 }
 response = es.update(index="events", id="QnNx-m0BWRj0BTxBNHR7", body=source_to_update)
 ```
+to delete an event:
+```
+es.delete(index='events', id='QnNx-m0BWRj0BTxBNHR7')
+```
 
 
 # Kibana
